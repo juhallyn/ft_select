@@ -6,12 +6,11 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 12:16:10 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/09/27 19:58:03 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/09/28 13:51:34 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
-
 
 int		ft_error(int succes)
 {
@@ -30,16 +29,24 @@ int		my_put(int c)
 	return (0);
 }
 
-int		whats_key(void)
+void	underline(void)
 {
-	char	buff[3];
+	unsigned long	buff;
 
-	read(0, buff, 3);
-	if (buff[0] == 27)
-		ft_putendl("fleche");
-	else
-		ft_putendl("other");
-	return (0);
+	read(0, &buff, sizeof(int));
+	ft_putstr_fd(tgoto(tgetstr("cm", NULL), 5, 2), 0);
+	ft_putnbr(buff);
+	// ft_putstr_fd(tgetstr("us", NULL), 0);
+	// if (buff[0] == 27 && buff[2] == 27 && buff[3] == 66)
+	// 	exit(1);
+	// ft_putchar('\n');
+	// ft_putnbr(buff[0]);
+	// ft_putchar('\n');
+	// ft_putnbr(buff[1]);
+	// ft_putchar('\n');
+	// ft_putnbr(buff[2]);
+	// ft_putchar('\n');
+	// ft_putnbr(buff[3]);
 }
 
 int		init_termios(void)
@@ -48,7 +55,6 @@ int		init_termios(void)
 	char			*term_type;
 	int				succes;
 	char			*line;
-	int				*ptr;
 
 	line = NULL;
 	if (!(term_type = getenv("TERM")))
@@ -60,8 +66,6 @@ int		init_termios(void)
 	if (succes == -1)
 		ft_putendl("tcgetattr fail");
 	change_term(&term);
-	// whats_key();
-	// ft_putstr_fd(tgetstr("cv", NULL), 0);
 	// tputs(tgoto(tgetstr("cv", NULL), 0, 0), 1, my_put);
 	return (0);
 }
@@ -69,9 +73,13 @@ int		init_termios(void)
 int		change_term(struct termios *term)
 {
 	term->c_lflag &= ~(ICANON);
-	term->c_lflag &= ~(ECHO);
+	term->c_lflag &= (ECHO);
 	term->c_cc[VMIN] = 1;
 	tcsetattr(0, TCSANOW, term);
+	while (42)
+	{
+		underline();
+	}
 	return (0);
 }
 
