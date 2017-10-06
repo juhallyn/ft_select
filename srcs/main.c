@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 12:16:10 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/06 15:02:45 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/06 19:42:20 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ int		my_put(int c)
 void	underline(void)
 {
 	unsigned long	buff;
-	ft_putnbr(tgetnum("co"));
-	ft_putchar('\n');
-	ft_putnbr(tgetnum("li"));
+//	ft_putnbr(tgetnum("co"));
+//	ft_putchar('\n');
+//	ft_putnbr(tgetnum("li"));
 
-	// read(0, &buff, sizeof(int));
+	 read(0, &buff, sizeof(int));
 	// ft_putstr_fd(tgoto(tgetstr("cm", NULL), 5, 2), 0);
 	// ft_putnbr(buff);
 }
@@ -68,29 +68,29 @@ int					init_termios(void)
 	succes = tcgetattr(0, &term);
 	if (succes == -1)
 		ft_putendl_fd("tcgetattr fail", 2);
-	change_term(term);
+	change_term(&term);
 	// tputs(tgoto(tgetstr("cv", NULL), 0, 0), 1, my_put);
 	return (0);
 }
 
-struct termios		*change_term(struct termios term)
+void			change_term(struct termios *term)
 {
 	struct termios	*save;
 
 	save = (struct termios*)malloc(sizeof(term));
 	if (!save)
 		ft_putendl_fd("save was not alloc", 2);
-	term.c_lflag &= ~(ICANON);
-	term.c_lflag |= ISIG;
-	term.c_lflag |= (ECHO);
-	term.c_cc[VMIN] = 1;
-	term.c_cc[VTIME] = 0;
-	tcsetattr(0, TCSANOW, &term);
-	// while (42)
-	// {
-		// underline();
-	// }
-	return (0);
+	term->c_lflag &= (ICANON);
+	term->c_lflag |= ISIG;
+	term->c_lflag |= (ECHO);
+	ft_putnbr(term->c_lflag);
+	term->c_cc[VMIN] = 1;
+	term->c_cc[VTIME] = 0;
+	tcsetattr(0, TCSANOW, term);
+	while (42)
+	 {
+		 underline();
+	 }
 }
 
 int		main(int argc, char **argv)//, char **env)
