@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/09/28 09:53:21 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/06 14:39:07 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 # include <term.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <signal.h>
 
-int		change_term(struct termios *term);
+int				init_termios(void);
+struct termios	*change_term(struct termios term);
+
 
 #endif
