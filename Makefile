@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 18:24:18 by juhallyn          #+#    #+#              #
-#    Updated: 2017/10/09 14:21:01 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/10/12 16:49:13 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,10 @@ PURPLE	=	echo "\x1b[35m $1 \x1b[0m $2"
 NAME	=	ft_select
 
 SRC 	=	main.c			\
-	tools.c			\
-	list.c \
-	print.c \
+			tools.c			\
+			list.c			\
+			print.c			\
+			struct_init.c	\
 
 
 OBJS		=	$(SRC:.c=.o)
@@ -37,7 +38,7 @@ OBJS_LIST	=	$(addprefix $(OBJS_DIR), $(OBJS))
 
 #_Compilation_#
 
-FLAG 	=	-Wall -Wextra -ltermcap -g3 -fsanitize=address #-Werror
+FLAG 	=	-Wall -Wextra -ltermcap #-g3 -fsanitize=address #-Werror
 
 all: $(NAME)
 

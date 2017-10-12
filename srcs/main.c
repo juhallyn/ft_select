@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 12:16:10 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/11 18:33:06 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/12 18:34:34 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ void	signal_handler(int sig)
 		ft_putendl("SIGINT Recev");
 		exit (0);
 	}
+	if (sig == SIGWINCH)
+	{
+		//
+		;
+	}
 }
 
 void	underline(void)
@@ -42,8 +47,6 @@ void	underline(void)
 	static int		y = 0;
 	char			*cursor;
 
-	if (ioctl(0, TIOCGWINSZ, &win) == -1)
-		ft_exit("ioctl fail");
 	key = 0;
 	cursor = tgetstr("cm", NULL);
 	read(0, &key, sizeof(unsigned long));
@@ -73,7 +76,7 @@ int					init_termios(void)
 	succes = tcgetattr(0, &term);
 	if (succes == -1)
 		ft_putendl_fd("tcgetattr fail, Could not access termcap database", 2);
-	// change_term(&term);
+	change_term(&term);
 	// while (42)
 	// {
 	// 	underline();
@@ -94,18 +97,22 @@ void			change_term(struct termios *term)
 
 int		main(int argc, char **argv)//, char **env)
 {
+	logger_init(7, "./log");
 	(void)argc;
 	(void)argv;
-	signal(SIGINT, signal_handler);
 	t_select	*select;
 
 	select = NULL;
-	init_list(argc, argv, &select);
+	if (argc < 2)
+		ft_exit("nb arg");
+	signal(SIGINT, signal_handler);
+	init_list(argc - 1, argv + 1, &select);
 	print_list(select);
-	free_list(&select);
-	while (1){}
-	// init_termios();
+	init_termios();
+	determinate_position(select);
 	// print_term(argv, argc);
 
+	free_list(&select);
+	logger_close();
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/11 18:39:57 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/12 18:24:02 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <stdio.h>
 # include <signal.h>
 # include <sys/ioctl.h>
+# include "../logger/incs/logger.h"
+# include "../logger/incs/logger_utils.h"
 
 /*
 **	--	KEY --
@@ -34,6 +36,15 @@
 // 	ft_putstr_fd(tgoto(cursor, x, y--), 0);
 // ft_putstr_fd(tgoto("cursor", 0, 0), 0);
 // printf("height %d\nwidth %d\n", height, width);
+
+// void		print_list(t_select *list)
+// {
+// 	while (list)
+// 	{
+// 		ft_putendl(list->data);
+// 		list = list->next;
+// 	}
+// }
 
 // while ((*list))
 // {
@@ -52,6 +63,9 @@
 
 typedef struct			s_status
 {
+	int					place_index;
+	int					x;
+	int					y;
 	t_bool				select;
 	t_bool				underlined;
 }						t_status;
@@ -59,10 +73,17 @@ typedef struct			s_status
 typedef struct			s_select
 {
 	char				*data;
+	struct s_select		*prev;
 	struct s_status		*status;
 	struct s_select		*next;
 }						t_select;
 
+typedef struct			s_std
+{
+	struct s_select		*select;
+	int					max_len;
+	int					argc;
+}						t_std;
 
 /*
 **	--	Functions --
@@ -75,10 +96,23 @@ void			change_term(struct termios *term);
 **	--	list.c --
 */
 
-t_select		*add_end(t_select *list, char *data, t_status *stat);
+void			add_end(t_select **select, char *data, int place_index);
+t_select		*init_data(char *data, int place_index);
 void			init_list(int argc, char **argv, t_select **list);
 void			print_list(t_select *list);
 void			free_list(t_select **list);
+
+/*
+**	--	struct_init.c --
+*/
+
+int				get_max_len(t_select *list);
+
+/*
+**	--	positions.c --
+*/
+
+int				determinate_position(t_select *select);
 
 /*
 **	--	tools.c --

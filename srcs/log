@@ -1,0 +1,135 @@
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mNEW INSTANCE OF THE APPLICATION[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mNEW INSTANCE OF THE APPLICATION[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+[38;5;239m[ 18:35:42 ] (l. 31) positions.c          -> x = 0
+y = 0
+[0m
+[38;5;239m[ 18:35:43 ] (l. 31) positions.c          -> x = 0
+y = 6
+[0m
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mEND OF THE APPLICATION INSTANCE[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mNEW INSTANCE OF THE APPLICATION[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+[38;5;239m[ 18:36:49 ] (l. 31) positions.c          -> x = 0  y = 0[0m
+[38;5;239m[ 18:36:50 ] (l. 31) positions.c          -> x = 6  y = 0[0m
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mEND OF THE APPLICATION INSTANCE[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mNEW INSTANCE OF THE APPLICATION[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+[38;5;239m[ 18:37:10 ] (l. 31) positions.c          -> x = 0  y = 0[0m
+[38;5;239m[ 18:37:11 ] (l. 31) positions.c          -> x = 12  y = 0[0m
+[38;5;239m[ 18:37:12 ] (l. 31) positions.c          -> x = 16  y = 0[0m
+[38;5;239m[ 18:37:13 ] (l. 31) positions.c          -> x = 18  y = 0[0m
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mEND OF THE APPLICATION INSTANCE[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mNEW INSTANCE OF THE APPLICATION[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+[38;5;239m[ 18:38:50 ] (l. 33) positions.c          -> x = 0  y = 0[0m
+[38;5;239m[ 18:38:51 ] (l. 33) positions.c          -> x = 30  y = 0[0m
+[38;5;239m[ 18:38:52 ] (l. 33) positions.c          -> x = 27  y = 0[0m
+[38;5;239m[ 18:38:53 ] (l. 33) positions.c          -> x = 24  y = 0[0m
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mEND OF THE APPLICATION INSTANCE[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mNEW INSTANCE OF THE APPLICATION[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+[38;5;239m[ 18:39:26 ] (l. 33) positions.c          -> x = 0  y = 0[0m
+[38;5;239m[ 18:39:27 ] (l. 33) positions.c          -> x = 30  y = 0[0m
+[38;5;239m[ 18:39:28 ] (l. 33) positions.c          -> x = 60  y = 0[0m
+[38;5;239m[ 18:39:29 ] (l. 33) positions.c          -> x = 90  y = 0[0m
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mEND OF THE APPLICATION INSTANCE[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mNEW INSTANCE OF THE APPLICATION[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+[38;5;239m[ 18:39:37 ] (l. 33) positions.c          -> x = 0  y = 0[0m
+[38;5;239m[ 18:39:38 ] (l. 33) positions.c          -> x = 30  y = 0[0m
+[38;5;239m[ 18:39:39 ] (l. 33) positions.c          -> x = 60  y = 0[0m
+[38;5;239m[ 18:39:40 ] (l. 33) positions.c          -> x = 90  y = 0[0m
+[38;5;239m[ 18:39:41 ] (l. 33) positions.c          -> x = 120  y = 0[0m
+[38;5;239m[ 18:39:42 ] (l. 33) positions.c          -> x = 150  y = 0[0m
+[38;5;239m[ 18:39:43 ] (l. 33) positions.c          -> x = 180  y = 0[0m
+[38;5;239m[ 18:39:44 ] (l. 33) positions.c          -> x = 210  y = 0[0m
+[38;5;239m[ 18:39:45 ] (l. 33) positions.c          -> x = 27  y = 1[0m
+[38;5;239m[ 18:39:46 ] (l. 33) positions.c          -> x = 57  y = 1[0m
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mEND OF THE APPLICATION INSTANCE[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mNEW INSTANCE OF THE APPLICATION[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+[38;5;239m[ 18:41:36 ] (l. 34) positions.c          -> x = 0  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:37 ] (l. 34) positions.c          -> x = 30  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:38 ] (l. 34) positions.c          -> x = 60  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:39 ] (l. 34) positions.c          -> x = 90  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:40 ] (l. 34) positions.c          -> x = 120  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:41 ] (l. 34) positions.c          -> x = 150  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:42 ] (l. 34) positions.c          -> x = 180  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:43 ] (l. 34) positions.c          -> x = 0  y = 1 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:44 ] (l. 34) positions.c          -> x = 30  y = 1 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:45 ] (l. 34) positions.c          -> x = 60  y = 1 max_len = 30, co = 210[0m
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mEND OF THE APPLICATION INSTANCE[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mNEW INSTANCE OF THE APPLICATION[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+[38;5;239m[ 18:41:50 ] (l. 34) positions.c          -> x = 0  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:51 ] (l. 34) positions.c          -> x = 30  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:52 ] (l. 34) positions.c          -> x = 60  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:53 ] (l. 34) positions.c          -> x = 90  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:54 ] (l. 34) positions.c          -> x = 120  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:55 ] (l. 34) positions.c          -> x = 150  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:56 ] (l. 34) positions.c          -> x = 180  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:57 ] (l. 34) positions.c          -> x = 0  y = 1 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:58 ] (l. 34) positions.c          -> x = 30  y = 1 max_len = 30, co = 210[0m
+[38;5;239m[ 18:41:59 ] (l. 34) positions.c          -> x = 60  y = 1 max_len = 30, co = 210[0m
+[38;5;239m[ 18:42:00 ] (l. 34) positions.c          -> x = 90  y = 1 max_len = 30, co = 210[0m
+[38;5;239m[ 18:42:01 ] (l. 34) positions.c          -> x = 120  y = 1 max_len = 30, co = 210[0m
+[38;5;239m[ 18:42:02 ] (l. 34) positions.c          -> x = 150  y = 1 max_len = 30, co = 210[0m
+[38;5;239m[ 18:42:03 ] (l. 34) positions.c          -> x = 180  y = 1 max_len = 30, co = 210[0m
+[38;5;239m[ 18:42:04 ] (l. 34) positions.c          -> x = 0  y = 2 max_len = 30, co = 210[0m
+[38;5;239m[ 18:42:05 ] (l. 34) positions.c          -> x = 30  y = 2 max_len = 30, co = 210[0m
+[38;5;239m[ 18:42:06 ] (l. 34) positions.c          -> x = 60  y = 2 max_len = 30, co = 210[0m
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mEND OF THE APPLICATION INSTANCE[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mNEW INSTANCE OF THE APPLICATION[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+[38;5;239m[ 18:47:15 ] (l. 34) positions.c          -> x = 0  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:47:16 ] (l. 34) positions.c          -> x = 30  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:47:17 ] (l. 34) positions.c          -> x = 60  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:47:18 ] (l. 34) positions.c          -> x = 90  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:47:19 ] (l. 34) positions.c          -> x = 120  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:47:20 ] (l. 34) positions.c          -> x = 150  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:47:21 ] (l. 34) positions.c          -> x = 180  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:47:22 ] (l. 34) positions.c          -> x = 0  y = 1 max_len = 30, co = 210[0m
+[38;5;239m[ 18:47:23 ] (l. 34) positions.c          -> x = 30  y = 1 max_len = 30, co = 210[0m
+[38;5;239m[ 18:47:24 ] (l. 34) positions.c          -> x = 60  y = 1 max_len = 30, co = 210[0m
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mNEW INSTANCE OF THE APPLICATION[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+[38;5;239m[ 18:47:45 ] (l. 34) positions.c          -> x = 0  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:47:46 ] (l. 34) positions.c          -> x = 30  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:47:47 ] (l. 34) positions.c          -> x = 60  y = 0 max_len = 30, co = 210[0m
+
+[32m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [0m[32mNEW INSTANCE OF THE APPLICATION[0m[32m <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[0m
+
+[38;5;239m[ 18:47:58 ] (l. 34) positions.c          -> x = 0  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:47:59 ] (l. 34) positions.c          -> x = 30  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:48:02 ] (l. 34) positions.c          -> x = 60  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:48:03 ] (l. 34) positions.c          -> x = 90  y = 0 max_len = 30, co = 210[0m
+[38;5;239m[ 18:48:04 ] (l. 34) positions.c          -> x = 120  y = 0 max_len = 30, co = 210[0m
