@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 12:16:10 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/16 16:01:41 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/16 18:43:23 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,14 @@ void			change_term(struct termios *term)
 
 int		main(int argc, char **argv)
 {
-	t_select	*select;
+	t_std		*std;
 
-	select = NULL;
 	if (argc < 2)
 		ft_exit("nb arg");
-	init_list(argc - 1, argv + 1, &select);
+	init_std(&std, argc - 1, argv + 1);
 	init_termios();
-	print_determinate_position(select);
-	free_list(&select);
+	determinate_position(std);
+	free_list(&std->select);
+	while (1) {}
 	return (0);
 }

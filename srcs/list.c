@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/11 13:59:45 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/16 15:03:35 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/16 18:43:27 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ void		add_end(t_select **select, char *data, int place_index)
 {
 	t_select	*tmp;
 
+	if (*select == NULL)
+		ft_putendl("C'est null");
 	if (!*select)
 	{
 		*select = init_data(data, place_index);
-		(*select)->status->underlined = 1;
+		(*select)->status->select = true;
 	}
 	else
 	{

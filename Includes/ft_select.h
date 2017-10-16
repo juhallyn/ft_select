@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/16 16:18:27 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/16 18:43:04 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,12 @@ typedef struct			s_select
 
 typedef struct			s_std
 {
-	// struct s_select		*select;
+	struct s_select		*select;
 	struct winsize		win;
+	int					nb_col;
+	int					index_page;
+	int					nb_page;
 	int					max_len;
-	int					argc;
 }						t_std;
 
 /*
@@ -111,16 +113,25 @@ void					print_list(t_select *list);
 void					free_list(t_select **list);
 
 /*
+**	--	print.c --
+*/
+
+void					print_element(t_select *select);
+void					print_select(t_std *std, t_select *select);
+
+
+/*
 **	--	struct_init.c --
 */
 
 int						get_max_len(t_select *list);
 
 /*
-**	--	print.c --
+**	--	positions.c --
 */
 
-void					print_determinate_position(t_select *select);
+void					init_std(t_std **std, int argc, char **argv);
+void					determinate_position(t_std *std);
 
 /*
 **	--	tools.c --
