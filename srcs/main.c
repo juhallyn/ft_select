@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 12:16:10 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/16 15:48:03 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/16 16:01:41 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,6 @@ int		ft_error(int succes)
 	if (succes == 0 || succes < 0)
 		return (-1);
 	return (0);
-}
-
-void	signal_handler(int sig)
-{
-	if (sig == SIGINT)
-	{
-		ft_putendl("SIGINT Recev");
-		exit (0);
-	}
-	if (sig == SIGWINCH)
-	{
-		ft_putendl_fd("WIN SIZE CHANGED", 0);
-	}
 }
 
 void	ft_select(void)
@@ -92,12 +79,9 @@ int		main(int argc, char **argv)
 	select = NULL;
 	if (argc < 2)
 		ft_exit("nb arg");
-	signal(SIGINT, signal_handler);
-	signal(SIGWINCH, signal_handler);
 	init_list(argc - 1, argv + 1, &select);
 	init_termios();
 	print_determinate_position(select);
 	free_list(&select);
-	while (1) {}
 	return (0);
 }

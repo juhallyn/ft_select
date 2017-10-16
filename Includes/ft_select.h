@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/16 15:06:17 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/16 16:18:27 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,35 +90,42 @@ typedef struct			s_std
 **	--	Functions --
 */
 
-int				init_termios(void);
-void			change_term(struct termios *term);
+int						init_termios(void);
+void					change_term(struct termios *term);
+
+/*
+**	--	signal.c --
+*/
+
+void					ft_signal(void);
+void					signal_handler(int sig);
 
 /*
 **	--	list.c --
 */
 
-void			add_end(t_select **select, char *data, int place_index);
-t_select		*init_data(char *data, int place_index);
-void			init_list(int argc, char **argv, t_select **list);
-void			print_list(t_select *list);
-void			free_list(t_select **list);
+void					add_end(t_select **select, char *data, int place_index);
+t_select				*init_data(char *data, int place_index);
+void					init_list(int argc, char **argv, t_select **list);
+void					print_list(t_select *list);
+void					free_list(t_select **list);
 
 /*
 **	--	struct_init.c --
 */
 
-int				get_max_len(t_select *list);
+int						get_max_len(t_select *list);
 
 /*
 **	--	print.c --
 */
 
-void			print_determinate_position(t_select *select);
+void					print_determinate_position(t_select *select);
 
 /*
 **	--	tools.c --
 */
 
-void			ft_exit(char *message);
+void					ft_exit(char *message);
 
 #endif
