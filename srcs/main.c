@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 12:16:10 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/16 18:43:23 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/17 17:37:25 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int		main(int argc, char **argv)
 	init_std(&std, argc - 1, argv + 1);
 	init_termios();
 	determinate_position(std);
-	free_list(&std->select);
+	free_std_select(&std);
 	while (1) {}
 	return (0);
 }

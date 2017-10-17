@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 17:59:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/16 18:43:05 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/17 16:16:40 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void		print_element(t_select *select)
 
 void		print_select(t_std *std, t_select *select)
 {
-	while (select && select->status->place_index < (std->index_page + 1)
-		* std->nb_page)
+	while (select && select->status->place_index < (std->index_page + 1) \
+	* std->nb_page)
 	{
 		print_element(select);
 		select = select->next;
