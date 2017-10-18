@@ -6,11 +6,29 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 17:59:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/17 16:16:40 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/18 16:26:10 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
+
+void	ft_select(void)
+{
+	unsigned long	key;
+	char			*cursor;
+
+	key = 0;
+	cursor = tgetstr("cm", NULL);
+	read(0, &key, sizeof(unsigned long));
+	if (key == ESC)
+	{
+		;
+	}
+	if (key == UP_ARROW)
+	{
+		// ft_putstr_fd(tgoto(cursor, win.ws_col, win.ws_row), 0);
+	}
+}
 
 void		print_element(t_select *select)
 {

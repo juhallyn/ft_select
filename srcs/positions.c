@@ -6,13 +6,13 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 15:05:58 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/16 18:43:26 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/18 16:25:36 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void		init_std(t_std **std, int argc, char **argv)//, t_select *select)
+void			init_std(t_std **std, int argc, char **argv)
 {
 	*std = NULL;
 	*std = (t_std*)ft_memalloc(sizeof(t_std));
@@ -24,21 +24,21 @@ void		init_std(t_std **std, int argc, char **argv)//, t_select *select)
         ft_exit("ioctl fail");
 }
 
-void			determinate_position(t_std *std)
+t_std			*determinate_position(t_std *std)
 {
+	t_select	*first;
 	char		*cursor;
 	int			co;
-	t_select	*tmp;
 
 	if (!(co = std->win.ws_col / std->max_len * std->max_len))
 	{
 		ft_putendl_fd("Windows Is Too Small", 2);
-		return ;
+		return (NULL);
 	}
 	std->nb_col = co / std->max_len;
 	std->nb_page = std->nb_col * (std->win.ws_row - 1);
 	cursor = tgetstr("cm", NULL);
-	tmp = std->select;
+	first = std->select;
 	while (std->select)
 	{
 		std->select->status->x = std->select->status->place_index * \
@@ -47,5 +47,6 @@ void			determinate_position(t_std *std)
 		std->max_len / co;
 		std->select = std->select->next;
 	}
-	print_select(std, tmp);
+	std->select = first;
+	return (std);
 }
