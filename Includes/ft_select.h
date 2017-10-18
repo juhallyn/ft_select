@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/18 16:26:44 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/18 19:03:47 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,11 +117,19 @@ void					free_std_select(t_std **std);
 **	--	print.c --
 */
 
-
-void					ft_select(void);
+void					ft_select(t_std **std, t_select **select, t_select *first);
 void					print_element(t_select *select);
 void					print_select(t_std *std, t_select *select);
 
+/*
+**	--	move.c --
+*/
+
+void					right_direction_space(t_select **select, t_select *first);
+void					underline(t_select **select);
+void					move_right(t_select **select);
+void					right_direction(t_select **select, t_select *first);
+void					reset(t_select **select, t_select *first);
 
 /*
 **	--	struct_init.c --

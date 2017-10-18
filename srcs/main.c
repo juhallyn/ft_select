@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 12:16:10 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/18 16:26:26 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/18 17:35:16 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,14 @@ int		main(int argc, char **argv)
 	if (argc < 2)
 		ft_exit("nb arg");
 	init_std(&std, argc - 1, argv + 1);
-		init_termios();
+	init_termios();
 	std = determinate_position(std);
 	print_select(std, std->select);
+	first = std->select;
+	while (1)
+	{
+		ft_select(&std, &(std->select), first);
+	}
 	// free_std_select(&std);
 	// while (1) {}
 	return (0);

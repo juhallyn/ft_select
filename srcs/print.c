@@ -6,17 +6,19 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 17:59:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/18 16:26:10 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/18 19:07:30 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void	ft_select(void)
+void	ft_select(t_std **std, t_select **select, t_select *first)
 {
 	unsigned long	key;
 	char			*cursor;
+	t_select		*tmp;
 
+	tmp = *select;
 	key = 0;
 	cursor = tgetstr("cm", NULL);
 	read(0, &key, sizeof(unsigned long));
@@ -24,10 +26,11 @@ void	ft_select(void)
 	{
 		;
 	}
-	if (key == UP_ARROW)
-	{
-		// ft_putstr_fd(tgoto(cursor, win.ws_col, win.ws_row), 0);
-	}
+	if (key == RIGHT_ARROW)
+		right_direction(select, first);
+	if (key == SPACE)
+		right_direction_space(select, first);
+
 }
 
 void		print_element(t_select *select)
