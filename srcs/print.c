@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 17:59:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/19 12:26:05 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/19 12:37:39 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_select(t_std **std, t_select **select, t_select *first)
 	read(0, &key, sizeof(unsigned long));
 	if (key == ESC)
 	{
-		printf("nb_page : %d\n", (*std)->nb_page);
+		printf(" \n\n nb : %d\n", ((*std)->index_page) % (*std)->nb_page);
 		ft_exit("");
 	}
 	if (key == RIGHT_ARROW)

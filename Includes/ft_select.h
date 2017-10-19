@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/19 12:15:11 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/19 14:18:45 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,34 +26,6 @@
 /*
 **	--	KEY --
 */
-// ft_exit("ESC");
-// if (key == LEFT_ARROW)
-// 	ft_putstr_fd(tgoto(cursor, x--, y), 0);
-// if (key == RIGHT_ARROW)
-// 	ft_putstr_fd(tgoto(cursor, x++, y), 0);
-// if (key == DOWN_ARROW)
-// 	ft_putstr_fd(tgoto(cursor, x, y++), 0);
-// if (key == UP_ARROW)
-// 	ft_putstr_fd(tgoto(cursor, x, y--), 0);
-// ft_putstr_fd(tgoto("cursor", 0, 0), 0);
-// printf("height %d\nwidth %d\n", height, width);
-
-// void		print_list(t_select *list)
-// {
-// 	while (list)
-// 	{
-// 		ft_putendl(list->data);
-// 		list = list->next;
-// 	}
-// }
-
-// while ((*list))
-// {
-// 	free((*list)->data);
-// 	(*list)->data = NULL;
-// 	free((*list));
-// 	(*list) = (*list)->next;
-// }
 
 # define UP_ARROW 		4283163
 # define DOWN_ARROW 	4348699
@@ -128,8 +100,11 @@ void					print_select(t_std *std, t_select *select);
 
 void					right_direction(t_select **select, t_select *first,\
 	 					bool underline);
+
+void					reset(t_select **select, t_select *first,\
+	 					bool underline);
+
 void					move_right(t_select **select, bool underline);
-void					reset(t_select **select, t_select *first, bool underline);
 
 /*
 **	--	struct_init.c --
