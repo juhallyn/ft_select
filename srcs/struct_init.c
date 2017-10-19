@@ -16,10 +16,8 @@ int		get_max_len(t_select *list)
 {
 	int		max_len;
 	int		cmp_len;
-	int		i;
 
 	max_len = 0;
-	i = 0;
 	while (list)
 	{
 		cmp_len = ft_strlen(list->data);

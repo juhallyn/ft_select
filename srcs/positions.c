@@ -27,8 +27,7 @@ void			init_std(t_std **std, int argc, char **argv)
 t_std			*determinate_position(t_std *std)
 {
 	t_select	*first;
-	char		*cursor;
-	int			co;
+	int		co;
 
 	if (!(co = std->win.ws_col / std->max_len * std->max_len))
 	{
@@ -37,7 +36,6 @@ t_std			*determinate_position(t_std *std)
 	}
 	std->nb_col = co / std->max_len;
 	std->nb_page = std->nb_col * (std->win.ws_row - 1);
-	cursor = tgetstr("cm", NULL);
 	first = std->select;
 	while (std->select)
 	{

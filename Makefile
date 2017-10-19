@@ -42,7 +42,7 @@ OBJS_LIST	=	$(addprefix $(OBJS_DIR), $(OBJS))
 
 #_Compilation_#
 
-FLAG 	=	-Wall -Wextra -ltermcap #-g3 -fsanitize=address #-Werror
+FLAG 	=	-Wall -Wextra -ltermcap -g3 #-fsanitize=address #-Werror
 
 all: $(NAME)
 

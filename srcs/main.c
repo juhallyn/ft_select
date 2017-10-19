@@ -28,9 +28,7 @@ int					init_termios(void) // int to
 	struct termios	term;
 	char			*term_type;
 	int				succes;
-	char			*line;
 
-	line = NULL;
 	if (!(term_type = getenv("TERM")))
 		return (-1);
 	succes = tgetent(NULL, term_type);

@@ -15,12 +15,8 @@
 void	ft_select(t_std **std, t_select **select, t_select *first)
 {
 	unsigned long	key;
-	char			*cursor;
-	t_select		*tmp;
 
-	tmp = *select;
 	key = 0;
-	cursor = tgetstr("cm", NULL);
 	read(0, &key, sizeof(unsigned long));
 	if (key == ESC)
 	{
