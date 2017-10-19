@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 18:24:18 by juhallyn          #+#    #+#              #
-#    Updated: 2017/10/18 15:40:13 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/10/19 11:24:12 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ NAME	=	ft_select
 
 SRC 	=	list.c				\
 			main.c				\
+			move.c				\
 			print.c				\
 			positions.c			\
 			signal.c			\

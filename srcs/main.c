@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 12:16:10 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/18 17:35:16 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/19 12:14:03 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_error(int succes)
 	return (0);
 }
 
-int					init_termios(void)
+int					init_termios(void) // int to
 {
 	struct termios	term;
 	char			*term_type;

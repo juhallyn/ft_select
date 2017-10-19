@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 14:13:56 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/11 15:13:51 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/19 12:13:59 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@ void	ft_exit(char *message)
 {
 	if (message)
 		ft_putendl(message);
+	
 	exit(0);
 }

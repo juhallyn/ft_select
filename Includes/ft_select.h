@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/18 19:03:47 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/19 12:15:11 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <signal.h>
 # include <sys/ioctl.h>
+# include <stdbool.h>
 // # include "../logger/incs/logger.h"
 // # include "../logger/incs/logger_utils.h"
 
@@ -66,8 +67,8 @@ typedef struct			s_status
 	int					place_index;
 	int					x;
 	int					y;
-	t_bool				select;
-	t_bool				underlined;
+	bool				select;
+	bool				underlined;
 }						t_status;
 
 typedef struct			s_select
@@ -125,11 +126,10 @@ void					print_select(t_std *std, t_select *select);
 **	--	move.c --
 */
 
-void					right_direction_space(t_select **select, t_select *first);
-void					underline(t_select **select);
-void					move_right(t_select **select);
-void					right_direction(t_select **select, t_select *first);
-void					reset(t_select **select, t_select *first);
+void					right_direction(t_select **select, t_select *first,\
+	 					bool underline);
+void					move_right(t_select **select, bool underline);
+void					reset(t_select **select, t_select *first, bool underline);
 
 /*
 **	--	struct_init.c --
