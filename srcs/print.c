@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 17:59:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/20 16:03:40 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/20 16:51:35 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_select(t_std **std, t_select *first)
 	read(0, &key, sizeof(unsigned long));
 	if (key == SIZE_CHANGED)
 	{
-
+		print_select(determinate_position(*std), first);
 	}
 	if (key == ESC)
 		ft_exit("ESC is pressed");

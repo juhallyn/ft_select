@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 15:05:58 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/20 15:56:53 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/20 16:51:47 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,10 @@ t_std			*determinate_position(t_std *std)
 	{
 		tmp = std->select;
 		std->select = std->select->next;
-		tmp->status->place_index = 0;
 		tmp->status->x = tmp->status->place_index * std->max_len % co;
 		tmp->status->y = tmp->status->place_index * \
 		std->max_len / co;
 	}
 	std->select = first;
-	print_select(std, std->select);
 	return (std);
 }
