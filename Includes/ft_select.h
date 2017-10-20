@@ -20,8 +20,8 @@
 # include <signal.h>
 # include <sys/ioctl.h>
 # include <stdbool.h>
-// # include "../logger/incs/logger.h"
-// # include "../logger/incs/logger_utils.h"
+# include "../logger/incs/logger.h"
+# include "../logger/incs/logger_utils.h"
 
 /*
 **	--	KEY --

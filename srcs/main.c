@@ -57,6 +57,7 @@ void			to_no_canonial(struct termios *term)
 
 int		main(int argc, char **argv)
 {
+	logger_init(7, "./log");	
 	t_std		*std;
 	t_select	*first;
 

@@ -54,9 +54,9 @@ norm:
 
 $(NAME):
 	make -C $(LIB)
-	gcc $(FLAG) -c $(SRCS_LIST) -I $(INC)
+	gcc $(FLAG) -c $(SRCS_LIST) -I $(INC) -I logger/incs/
 	mv $(OBJS) $(OBJS_DIR)
-	gcc $(FLAG) $(OBJS_LIST) -I $(INC) $(LIB)libft.a -o $(NAME)
+	gcc $(FLAG) $(OBJS_LIST) -I logger/incs/ -I $(INC) logger/liblogger.a $(LIB)libft.a -o $(NAME)
 
 clean:
 	rm -f $(OBJS_LIST)

@@ -36,6 +36,7 @@ t_std			*determinate_position(t_std *std)
 		return (NULL);
 	}
 	std->nb_col = co / std->max_len;
+	log_trace("%d", std->nb_col);
 	std->nb_page = std->nb_col * (std->win.ws_row - 1);
 	first = std->select;
 	while (std->select)
