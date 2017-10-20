@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 15:05:58 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/20 14:13:30 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/20 15:56:53 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,12 @@ void			init_std(t_std **std, int argc, char **argv)
 		ft_exit("can't allocate std in determinate_position");
 	init_list(argc, argv, &((*std)->select));
 	(*std)->max_len = get_max_len((*std)->select);
-	(*std)->argc = argc;
-	(*std)->argv = argv;
-    // if (ioctl(0, TIOCGWINSZ, (&(*std)->win)) == -1)
-    //     ft_exit("ioctl fail");
 }
 
 t_std			*determinate_position(t_std *std)
 {
 	t_select	*first;
+	t_select	*tmp;
 	int			co;
 
     if ((ioctl(0, TIOCGWINSZ, &(std)->win)) == -1)
@@ -43,13 +40,14 @@ t_std			*determinate_position(t_std *std)
 	first = std->select;
 	while (std->select)
 	{
-		std->select->status->x = std->select->status->place_index * \
-		std->max_len % co;
-		std->select->status->y = std->select->status->place_index * \
-		std->max_len / co;
+		tmp = std->select;
 		std->select = std->select->next;
+		tmp->status->place_index = 0;
+		tmp->status->x = tmp->status->place_index * std->max_len % co;
+		tmp->status->y = tmp->status->place_index * \
+		std->max_len / co;
 	}
 	std->select = first;
-	print_select(std, (std)->select);
+	print_select(std, std->select);
 	return (std);
 }

@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/19 18:18:59 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/20 14:42:04 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void					free_std_select(t_std **std);
 **	--	print.c --
 */
 
-void					ft_select(t_std **std, t_select **select, t_select *first);
+void					ft_select(t_std **std, t_select *first);
 void					print_element(t_select *select);
 void					print_select(t_std *std, t_select *select);
 
