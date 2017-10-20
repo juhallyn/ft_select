@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/19 14:18:45 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/19 18:18:59 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@
 # define ESC			27
 # define SPACE			32
 
+/*
+**	--	ioctl magic --
+*/
+
+# define SIZE_CHANGED	2
+
+
 typedef struct			s_status
 {
 	int					place_index;
@@ -58,6 +65,8 @@ typedef struct			s_std
 	int					nb_col;
 	int					index_page;
 	int					nb_page;
+	int					argc;
+	char				**argv;
 	int					max_len;
 }						t_std;
 
@@ -65,8 +74,9 @@ typedef struct			s_std
 **	--	Functions --
 */
 
-int						init_termios(void);
-void					change_term(struct termios *term);
+int						init_term_canon(bool canon);
+void					to_no_canonial(struct termios *term);
+
 
 /*
 **	--	signal.c --
@@ -100,10 +110,8 @@ void					print_select(t_std *std, t_select *select);
 
 void					right_direction(t_select **select, t_select *first,\
 	 					bool underline);
-
 void					reset(t_select **select, t_select *first,\
 	 					bool underline);
-
 void					move_right(t_select **select, bool underline);
 
 /*

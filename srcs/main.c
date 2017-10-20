@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 12:16:10 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/19 12:14:03 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/20 14:24:36 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_error(int succes)
 	return (0);
 }
 
-int					init_termios(void) // int to
+int					init_term_canon(bool canon)
 {
 	struct termios	term;
 	char			*term_type;
@@ -37,11 +37,14 @@ int					init_termios(void) // int to
 	succes = tcgetattr(0, &term);
 	if (succes == -1)
 		ft_putendl_fd("tcgetattr fail, Could not access termcap database", 2);
-	change_term(&term);
+	if (!canon)
+		to_no_canonial(&term);
+	// else
+	// 	reset_term(&term);
 	return (0);
 }
 
-void			change_term(struct termios *term)
+void			to_no_canonial(struct termios *term)
 {
 	term->c_lflag &= ~(ICANON | ECHO);
 	term->c_lflag |= ISIG;
@@ -61,15 +64,14 @@ int		main(int argc, char **argv)
 	first = NULL;
 	if (argc < 2)
 		ft_exit("nb arg");
+	ft_signal();
 	init_std(&std, argc - 1, argv + 1);
-	init_termios();
+	init_term_canon(false);
 	std = determinate_position(std);
 	print_select(std, std->select);
 	first = std->select;
-	while (1)
-	{
-		ft_select(&std, &(std->select), first);
-	}
+	while (42)
+		ft_select(&std, first);
 	// free_std_select(&std);
 	// while (1) {}
 	return (0);

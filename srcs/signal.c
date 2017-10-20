@@ -6,19 +6,19 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 15:56:45 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/16 18:43:09 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/20 14:15:35 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void	ft_signal(void)
+void		ft_signal(void)
 {
 	signal(SIGINT, signal_handler);
 	signal(SIGWINCH, signal_handler);
 }
 
-void	signal_handler(int sig)
+void		signal_handler(int sig)
 {
 	if (sig == SIGINT)
 	{
@@ -26,7 +26,5 @@ void	signal_handler(int sig)
 		exit (0);
 	}
 	if (sig == SIGWINCH)
-	{
-		ft_putendl_fd("WIN SIZE CHANGED", 0);
-	}
+		ioctl(0, TIOCSTI, "\2\0");
 }

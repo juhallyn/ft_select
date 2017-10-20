@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 15:05:58 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/19 12:30:30 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/20 14:13:30 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,19 @@ void			init_std(t_std **std, int argc, char **argv)
 		ft_exit("can't allocate std in determinate_position");
 	init_list(argc, argv, &((*std)->select));
 	(*std)->max_len = get_max_len((*std)->select);
-    if (ioctl(0, TIOCGWINSZ, (&(*std)->win)) == -1)
-        ft_exit("ioctl fail");
+	(*std)->argc = argc;
+	(*std)->argv = argv;
+    // if (ioctl(0, TIOCGWINSZ, (&(*std)->win)) == -1)
+    //     ft_exit("ioctl fail");
 }
 
 t_std			*determinate_position(t_std *std)
 {
 	t_select	*first;
-	int		co;
+	int			co;
 
+    if ((ioctl(0, TIOCGWINSZ, &(std)->win)) == -1)
+        ft_exit("ioctl fail");
 	if (!(co = std->win.ws_col / std->max_len * std->max_len))
 	{
 		ft_putendl_fd("Windows Is Too Small", 2);
@@ -46,5 +50,6 @@ t_std			*determinate_position(t_std *std)
 		std->select = std->select->next;
 	}
 	std->select = first;
+	print_select(std, (std)->select);
 	return (std);
 }
