@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 18:24:18 by juhallyn          #+#    #+#              #
-#    Updated: 2017/10/19 11:24:12 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/10/24 17:16:12 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ PURPLE	=	echo "\x1b[35m $1 \x1b[0m $2"
 
 NAME	=	ft_select
 
-SRC 	=	list.c				\
+SRC 	=	\
+			delete.c			\
+			list.c				\
 			main.c				\
 			move.c				\
 			print.c				\

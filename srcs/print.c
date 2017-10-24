@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 17:59:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/20 16:51:35 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/24 19:32:14 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,40 @@
 void	ft_select(t_std **std, t_select *first)
 {
 	unsigned long	key;
+	t_select		*last;
 
 	key = 0;
+	last = get_last_element((*std)->select);
 	read(0, &key, sizeof(unsigned long));
+	// printf("\n\n\n%ld\n", key);
 	if (key == SIZE_CHANGED)
 	{
-		print_select(determinate_position(*std), first);
+		log_error("/!\\ RESIZE /!\\");
+		if (determinate_position(*std))
+			print_select(*std, first);
+	}
+	if (key == DEL)
+	{
+		delete_element(std, &(*std)->select);
+		if (determinate_position(*std))
+			print_select(*std, first);
 	}
 	if (key == ESC)
 		ft_exit("ESC is pressed");
+	if (key == LEFT_ARROW)
+		left_direction(&(*std)->select);
 	if (key == RIGHT_ARROW)
 		right_direction(&(*std)->select, first, false);
 	if (key == SPACE)
 		right_direction(&(*std)->select, first, true);
 }
 
-// void		ft_resize(t_std **std)
-// {
-//     if ((ioctl(0, TIOCGWINSZ, (std)->win)) == -1)
-//         ft_exit("ioctl fail");
-// 	if (!(co = std->win.ws_col / std->max_len * std->max_len))
-// 	{
-// 		ft_putendl_fd("Windows Is Too Small", 2);
-// 		return ;
-// 	}
-// }
-
 void		print_element(t_select *select)
 {
 	char	*cursor;
+
+	log_info("[%d] Select de x [%d] && Select de y [%d]",select->status->place_index,\
+	select->status->x,select->status->y);
 
 	cursor = tgetstr("cm", NULL);
 	ft_putstr_fd(tgoto(cursor , select->status->x, select->status->y), 0);

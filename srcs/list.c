@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/11 13:59:45 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/19 12:17:05 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/24 15:24:18 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,27 @@ void		init_list(int argc, char **argv, t_select **list)
 	}
 }
 
-void		free_list(t_select **list)
+t_select	*get_last_element(t_select *select)
 {
-	t_select	*tmp;
-
-	while (*list)
-	{
-		tmp = *list;
-		(*list) = (*list)->next;
-		free(tmp->data);
-		free(tmp->status);
-		free(tmp);
-	}
-	*list = NULL;
+	while (select->next)
+		select = select->next;
+	return (select);
 }
+
+// void		free_list(t_select **list)
+// {
+// 	t_select	*tmp;
+//
+// 	while (*list)
+// 	{
+// 		tmp = *list;
+// 		(*list) = (*list)->next;
+// 		free(tmp->data);
+// 		free(tmp->status);
+// 		free(tmp);
+// 	}
+// 	*list = NULL;
+// }
 
 void		free_std_select(t_std **std)
 {

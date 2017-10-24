@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 12:16:10 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/20 14:24:36 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/24 19:43:18 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ void			to_no_canonial(struct termios *term)
 	term->c_cc[VTIME] = 0;
 	tcsetattr(0, TCSANOW, term);
 	ft_putstr_fd(tgetstr("ti", NULL), 0);
-	// ft_putstr_fd(tgetstr("vi", NULL), 0);
+	ft_putstr_fd(tgetstr("vi", NULL), 0);
 }
 
 int		main(int argc, char **argv)
 {
-	logger_init(7, "./log");	
+	logger_init(7, "./log");
 	t_std		*std;
 	t_select	*first;
 
