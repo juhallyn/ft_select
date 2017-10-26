@@ -24,3 +24,16 @@ y
 
 	(index * max_len) % y
 	(index * max_len) / y
+
+
+	prev --> actual --> next
+
+actual = toto;
+
+termcap.txt --> actual --> NULL;
+
+result
+
+actual = termcap
+
+termcap --> null;

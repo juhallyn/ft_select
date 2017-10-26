@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/08 15:06:34 by juhallyn          #+#    #+#              #
-#    Updated: 2017/09/14 17:11:18 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/08/28 13:16:40 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,8 +64,6 @@ SOURCES =	ft_memset.c			\
 			ft_strsplit.c		\
 			ft_itoa.c			\
 			ft_strtrim.c		\
-			ft_arraylen.c		\
-			ft_arraydel.c		\
 			get_next_line.c		\
 
 OBJS = $(SOURCES:.c=.o)

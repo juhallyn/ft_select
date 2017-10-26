@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/24 19:33:25 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/26 19:20:52 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define ESC			27
 # define SPACE			32
 # define DEL			2117294875
+# define ENTER			10
 
 /*
 **	--	ioctl magic --
@@ -76,6 +77,7 @@ typedef struct			s_std
 **	--	Functions --
 */
 
+int						init_fd(void);
 int						init_term_canon(bool canon);
 void					to_no_canonial(struct termios *term);
 
@@ -104,6 +106,7 @@ t_select				*get_last_element(t_select *select);
 */
 
 void					ft_select(t_std **std, t_select *first);
+void					print_selected_arg(t_select *select);
 void					print_element(t_select *select);
 void					print_select(t_std *std, t_select *select);
 
@@ -147,5 +150,6 @@ t_std					*determinate_position(t_std *std);
 */
 
 void					ft_exit(char *message);
+void					free_selected_element(t_select **to_del);
 
 #endif

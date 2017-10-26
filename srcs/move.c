@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/18 17:38:13 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/24 16:39:36 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/26 17:24:31 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	left_direction(t_select **select)
 {
+	if (!*select)
+		return ;
 	if ((*select)->prev)
 	{
 		move_left(select);
@@ -37,6 +39,8 @@ void	to_last_element(t_select **select)
 
 void	right_direction(t_select **select, t_select *first, bool underline)
 {
+	if (!*select)
+		return ;
 	if ((*select)->next)
 	{
 		move_right(select, underline);

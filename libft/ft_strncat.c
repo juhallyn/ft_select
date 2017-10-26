@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juhallyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 13:12:17 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/09/15 14:52:39 by juhallyn         ###   ########.fr       */
+/*   Updated: 2016/11/16 14:11:08 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 	x = 0;
 	j = 0;
 	i = ft_strlen(s1);
-	if (!s2 || !s1)
-		return (s1);
 	while (s2[j] && x < n)
 	{
 		s1[i] = s2[j];

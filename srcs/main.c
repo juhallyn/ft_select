@@ -6,13 +6,13 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 12:16:10 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/26 14:43:00 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/26 19:56:12 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-int		ft_error(int succes)
+int					ft_error(int succes)
 {
 	if (succes < 0)
 		ft_putendl_fd("Could not access the termcap data base.", 2);
@@ -21,6 +21,15 @@ int		ft_error(int succes)
 	if (succes == 0 || succes < 0)
 		return (-1);
 	return (0);
+}
+
+void				reset_term(struct termios *term)
+{
+	term->c_lflag &= (ICANON);
+	term->c_lflag |= ISIG;
+	term->c_lflag |= ECHO;
+	ft_putstr_fd(tgetstr("ve", NULL), 0);
+	tcsetattr(0, TCSANOW, term);
 }
 
 int					init_term_canon(bool canon)
@@ -39,8 +48,8 @@ int					init_term_canon(bool canon)
 		ft_putendl_fd("tcgetattr fail, Could not access termcap database", 2);
 	if (!canon)
 		to_no_canonial(&term);
-	// else
-	// 	reset_term(&term);
+	else
+		reset_term(&term);
 	return (0);
 }
 

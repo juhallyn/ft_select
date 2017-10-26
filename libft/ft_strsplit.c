@@ -6,7 +6,7 @@
 /*   By: juhallyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 15:52:05 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/09/20 18:07:04 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/03/20 15:37:29 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 static const char	*ft_strnext(const char *str, char c, int sk)
 {
 	if (sk)
-		while (*str != '\0' && (*str == c || (*str >= '\t' && *str <= '\r')))
+		while (*str != '\0' && *str == c)
 			str++;
 	else
-		while (*str != '\0' && (*str != c || (*str <= '\t' && *str >= '\r')))
+		while (*str != '\0' && *str != c)
 			str++;
 	return (str);
 }
@@ -49,20 +49,6 @@ static int			ft_str_count(const char *str, int seq)
 		}
 	}
 	return (i);
-}
-
-char				*ft_escape_chars(char *str, char c)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] >= '\t' && str[i] <= '\r')
-			str[i] = c;
-		i++;
-	}
-	return (str);
 }
 
 char				**ft_strsplit(char const *s, char c)
