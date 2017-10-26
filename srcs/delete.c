@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/24 16:50:40 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/24 19:48:30 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/26 15:15:47 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 static void del_middle(t_select **prev, t_select **to_del, t_select **next)
 {
-	free((*to_del)->data);
-	free((*to_del)->status);
-	free(*to_del);
-	free(to_del);
 	(*prev)->next = *next;
 	(*next)->prev = *prev;
+	ft_strdel(&(*to_del)->data);
+	free((*to_del)->status);
+	free((*to_del));
+	(*to_del) = *prev;
 }
 
 static void reset_position(t_std **std)

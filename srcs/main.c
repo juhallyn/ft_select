@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 12:16:10 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/24 19:43:18 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/26 14:43:00 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,8 @@ int		main(int argc, char **argv)
 {
 	logger_init(7, "./log");
 	t_std		*std;
-	t_select	*first;
 
 	std = NULL;
-	first = NULL;
 	if (argc < 2)
 		ft_exit("nb arg");
 	ft_signal();
@@ -70,9 +68,8 @@ int		main(int argc, char **argv)
 	init_term_canon(false);
 	std = determinate_position(std);
 	print_select(std, std->select);
-	first = std->select;
 	while (42)
-		ft_select(&std, first);
+		ft_select(&std, std->first);
 	// free_std_select(&std);
 	// while (1) {}
 	return (0);

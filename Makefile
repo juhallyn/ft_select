@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 18:24:18 by juhallyn          #+#    #+#              #
-#    Updated: 2017/10/24 17:16:12 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/10/26 15:17:23 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ OBJS_LIST	=	$(addprefix $(OBJS_DIR), $(OBJS))
 
 #_Compilation_#
 
-FLAG 	=	-Wall -Wextra -ltermcap -g3 #-fsanitize=address #-Werror
+FLAG 	=	-Wall -Wextra -ltermcap #-g3 -fsanitize=address #-Werror
 
 all: $(NAME)
 
