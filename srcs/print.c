@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 17:59:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/30 17:53:45 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/30 18:49:03 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ void	ft_select(t_std **std, t_select *first)
 		print_selected_arg((*std)->first);
 	if (key == ESC)
 		ft_exit("ESC is pressed");
+	if (key == UP_ARROW)
+		move_up_if_possible(&(*std)->select, (*std)->nb_col);
+	if (key == DOWN_ARROW)
+		move_down_if_possible(&(*std)->select, first, (*std)->nb_col);
 	if (key == LEFT_ARROW)
 		left_direction(&(*std)->select);
 	if (key == RIGHT_ARROW)
@@ -88,12 +92,9 @@ void		print_select(t_std *std, t_select *select)
 		ft_putendl_fd("Windows Is Too Small", 2);
 		return ;
 	}
-	while (select && select->status->place_index < (std->index_page + 1) \
-	* std->max_elem_page)
+	while (select && select->status->place_index <  std->max_elem_page)
 	{
 		print_element(select);
 		select = select->next;
 	}
-	// ft_putstr_fd(tgoto(cursor, 0, (*std).win.ws_col), 0);
-	// print_page_index(std->index_page, std->nb_page);
 }

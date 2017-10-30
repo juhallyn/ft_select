@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/30 16:43:52 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/30 18:52:21 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 # define ENTER			10
 
 /*
-**	--	ioctl magic --
+**	--	ioctl RESIZE --
 */
 
 # define SIZE_CHANGED	2
@@ -65,8 +65,6 @@ typedef struct			s_std
 	struct s_select		*first;
 	struct winsize		win;
 	int					nb_col;
-	int					index_page;
-	int					nb_page;
 	int					max_elem_page;
 	int					argc;
 	char				**argv;
@@ -111,20 +109,25 @@ void					print_element(t_select *select);
 void					print_select(t_std *std, t_select *select);
 
 /*
-**	--	move.c --
+**	--	move_row.c --
 */
 
 void					left_direction(t_select **select);
 void					right_direction(t_select **select, t_select *first,\
 	 					bool underline);
-
 void					move_right(t_select **select, bool underline);
 void					move_left(t_select **select);
 void					reset(t_select **select, t_select *first,\
 	 					bool underline);
-
 void					to_last_element(t_select **select);
 
+/*
+**	--	move_col.c --
+*/
+
+bool					move_down_if_possible(t_select **select, \
+						t_select *first, int nb_col);
+bool					move_up_if_possible(t_select **select, int nb_col);
 
 /*
 **	--	delete.c --
@@ -144,7 +147,6 @@ int						get_max_len(t_select *list);
 
 void					init_std(t_std **std, int argc, char **argv);
 bool					determinate_position(t_std **std);
-int						determinate_nb_page(int argc, int max_elem_page);
 
 /*
 **	--	tools.c --

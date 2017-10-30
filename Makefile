@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 18:24:18 by juhallyn          #+#    #+#              #
-#    Updated: 2017/10/26 15:58:00 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/10/30 18:51:02 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRC 	=	\
 			delete.c			\
 			list.c				\
 			main.c				\
-			move.c				\
+			move_col.c			\
+			move_row.c			\
 			print.c				\
 			positions.c			\
 			signal.c			\
