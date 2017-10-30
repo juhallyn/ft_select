@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/11 13:59:45 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/26 20:12:36 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/30 14:24:55 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_select	*init_data(char *data, int place_index)
 	element = (t_select*)malloc(sizeof(t_select));
 	if (!element)
 		ft_exit("can't allocate element in init_data");
-	element->status = malloc(sizeof(t_status));
+	element->status = (t_status*)malloc(sizeof(t_status));
 	if (!element->status)
 		ft_exit("can't allocate element->status in init_data");
 	element->data = ft_strdup(data);

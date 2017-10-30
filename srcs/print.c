@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 17:59:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/30 13:57:13 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/30 16:17:46 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,29 @@ void	ft_select(t_std **std, t_select *first)
 	{
 		log_error("/!\\ RESIZE /!\\");
 		if (determinate_position(*std))
+		{
+			*std = determinate_position(*std);
 			print_select(*std, first);
+		}
 	}
 	if (key == DEL)
 	{
 		delete_element(std, &(*std)->select);
 		if (determinate_position(*std))
+		{
+			*std = determinate_position(*std);
 			print_select(*std, (*std)->first);
+		}
+	}
+	if (key == DOWN_ARROW)
+	{
+		printf("\n\n\n\n\n argc == %d \n\n", (*std)->argc);
+		printf("\n\n\n max_elem_page == %d \n", (*std)->max_elem_page);
+		printf("\n\n\n nb_page == %d \n", (*std)->nb_page);
+		// printf("\n\n\n index_page * max_elem_page == %d \n", (*std)->index_page +1 * (*std)->max_elem_page);
+		// if ((*std)->argc > (*std)->max_elem_page)
+		// {
+		// }
 	}
 	if (key == ENTER)
 		print_selected_arg((*std)->first);
@@ -80,7 +96,7 @@ void		print_select(t_std *std, t_select *select)
 {
 	ft_putstr_fd(tgetstr("cl", NULL), 0);
 	while (select && select->status->place_index < (std->index_page + 1) \
-	* std->nb_page)
+	* std->max_elem_page)
 	{
 		print_element(select);
 		select = select->next;

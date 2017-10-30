@@ -6,7 +6,7 @@
 ;    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/10/12 17:13:34 by juhallyn          #+#    #+#              ;
-;    Updated: 2017/10/16 18:43:05 by juhallyn         ###   ########.fr        ;
+;    Updated: 2017/10/30 15:37:01 by juhallyn         ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -37,3 +37,7 @@ result
 actual = termcap
 
 termcap --> null;
+
+
+nb_col 	=	nombre de col possible
+max_elem_page =	nombre d'element possible par page
