@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/30 16:11:30 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/30 16:43:52 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ int						get_max_len(t_select *list);
 */
 
 void					init_std(t_std **std, int argc, char **argv);
-t_std					*determinate_position(t_std *std);
+bool					determinate_position(t_std **std);
 int						determinate_nb_page(int argc, int max_elem_page);
 
 /*
@@ -152,5 +152,6 @@ int						determinate_nb_page(int argc, int max_elem_page);
 
 void					ft_exit(char *message);
 void					free_selected_element(t_select **to_del);
+void					print_page_index(int i, int total);
 
 #endif
