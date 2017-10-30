@@ -6,38 +6,40 @@
 ;    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/10/12 17:13:34 by juhallyn          #+#    #+#              ;
-;    Updated: 2017/10/30 15:37:01 by juhallyn         ###   ########.fr        ;
+;    Updated: 2017/10/30 17:17:48 by juhallyn         ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-y = column
-x = line
 
-y
-|
-|
-|
-|
-|
---------- x
+--------------------------------------------------------------------------------
 
+test 	test	test 	test	test 	test	test 	test	test 	test
 
-	(index * max_len) % y
-	(index * max_len) / y
+test 	test	test 	test	test 	test	test 	test	test 	test
 
+test 	test	test 	test	test 	test	test 	test	test 	test
 
-	prev --> actual --> next
+test 	test	test 	test	test 	test	test 	test	test 	test
+																		----
+page(s) (0/1)
+--------------------------------------------------------------------------------
 
-actual = toto;
+max_element_page = 40;
+place_index = 40;
 
-termcap.txt --> actual --> NULL;
+move_right
 
-result
-
-actual = termcap
-
-termcap --> null;
+		if (place_index % max_elem_page == 0)
+			go_to_next_pages();
 
 
-nb_col 	=	nombre de col possible
-max_elem_page =	nombre d'element possible par page
+go_to_next_pages(&select)
+{
+	clear;
+	while (i < max_elem_page)
+	{
+		select = select->next
+		i++
+	}
+	reset_position();
+}

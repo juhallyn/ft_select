@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/24 16:50:40 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/30 16:55:23 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/30 17:03:49 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,18 +82,3 @@ void		delete_element(t_std **std, t_select **select)
 	(*std)->argc--;
 	reset_position(std);
 }
-
-// t_select	*connect_element(t_select *prev, t_select *next);
-// {
-//     - prev -   - TO_DEL -  - next -
-//
-//				TO_DEL = next;
-//
-//			TO_DEL  <-  SELECT
-//
-//		SELECT-> prev = prev;
-//
-//
-//
-
-// }

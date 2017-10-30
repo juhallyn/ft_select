@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 14:13:56 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/30 16:42:56 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/30 17:21:06 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	free_selected_element(t_select **to_del)
 
 void	print_page_index(int i, int total)
 {
-	ft_putstr("pages (");
+	ft_putstr("Pages status (");
 	ft_putnbr(i);
 	ft_putchar('/');
 	ft_putnbr(total);

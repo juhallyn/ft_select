@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 15:05:58 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/30 16:32:30 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/10/30 17:49:01 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ bool			determinate_position(t_std **std)
 		return (false);
 	}
 	(*std)->nb_col = co / (*std)->max_len;
-	(*std)->max_elem_page = (*std)->nb_col * ((*std)->win.ws_row - 1);
+	(*std)->max_elem_page = (*std)->nb_col * ((*std)->win.ws_row - 0);
 	(*std)->nb_page = determinate_nb_page((*std)->argc, (*std)->max_elem_page);
 	tmp = (*std)->first;
 	while (tmp)
