@@ -1,0 +1,43 @@
+; **************************************************************************** ;
+;                                                                              ;
+;                                                         :::      ::::::::    ;
+;    notes                                              :+:      :+:    :+:    ;
+;                                                     +:+ +:+         +:+      ;
+;    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         ;
+;                                                 +#+#+#+#+#+   +#+            ;
+;    Created: 2017/10/12 17:13:34 by juhallyn          #+#    #+#              ;
+;    Updated: 2017/10/30 15:37:01 by juhallyn         ###   ########.fr        ;
+;                                                                              ;
+; **************************************************************************** ;
+
+y = column
+x = line
+
+y
+|
+|
+|
+|
+|
+--------- x
+
+
+	(index * max_len) % y
+	(index * max_len) / y
+
+
+	prev --> actual --> next
+
+actual = toto;
+
+termcap.txt --> actual --> NULL;
+
+result
+
+actual = termcap
+
+termcap --> null;
+
+
+nb_col 	=	nombre de col possible
+max_elem_page =	nombre d'element possible par page
