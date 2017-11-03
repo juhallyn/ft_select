@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/02 22:21:11 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/03 00:44:45 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,17 +105,15 @@ void					signal_handler(int sig);
 void					add_end(t_select **select, char *data, int place_index);
 t_select				*init_data(char *data, int place_index);
 void					init_list(int argc, char **argv, t_select **list);
-void					print_list(t_select *list);
-void					free_list(t_select **list);
-void					free_std_select(t_std **std);
 t_select				*get_last_element(t_select *select);
 
 /*
 **	--	print.c --
 */
 
-void					ft_select(t_std **std, t_select *first);
+void					ft_select(t_std **std);
 void					print_selected_arg(t_select *select);
+void					refresh(t_std **std, t_select *first);
 void					print_element(t_select *select);
 void					print_select(t_std *std, t_select *select);
 

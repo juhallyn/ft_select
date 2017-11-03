@@ -6,28 +6,24 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 17:59:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/02 23:01:21 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/03 00:41:02 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void	ft_select(t_std **std, t_select *first)
+void	ft_select(t_std **std)
 {
 	unsigned long 		key;
 
 	key = 0;
 	read(0, &key, sizeof(unsigned long));
 	if (key == SIZE_CHANGED)
-	{
-		if (determinate_position(std))
-			print_select(*std, (*std)->first);
-	}
+		refresh(std, (*std)->first);
 	if (key == DEL)
 	{
 		delete_element(std, &(*std)->select);
-		if (determinate_position(std))
-			print_select(*std, (*std)->first);
+		refresh(std, (*std)->first);
 	}
 	if (key == ENTER)
 		print_selected_arg((*std)->first);
@@ -36,13 +32,13 @@ void	ft_select(t_std **std, t_select *first)
 	if (key == UP_ARROW)
 		move_up_if_possible(&(*std)->select, (*std)->nb_col);
 	if (key == DOWN_ARROW)
-		move_down_if_possible(&(*std)->select, first, (*std)->nb_col);
+		move_down_if_possible(&(*std)->select, (*std)->first, (*std)->nb_col);
 	if (key == LEFT_ARROW)
 		left_direction(&(*std)->select);
 	if (key == RIGHT_ARROW)
-		right_direction(&(*std)->select, first, false);
+		right_direction(&(*std)->select, (*std)->first, false);
 	if (key == SPACE)
-		right_direction(&(*std)->select, first, true);
+		right_direction(&(*std)->select, (*std)->first, true);
 }
 
 void		print_selected_arg(t_select *select)
@@ -62,11 +58,11 @@ void		print_selected_arg(t_select *select)
 	exit (0);
 }
 
-// void		refresh(t_std **std, t_select *first)
-// {
-// 	if (determinate_position(std))
-// 		print_select(*std, first);
-// }
+void		refresh(t_std **std, t_select *first)
+{
+	if (determinate_position(std))
+		print_select(*std, first);
+}
 
 void		print_element(t_select *select)
 {

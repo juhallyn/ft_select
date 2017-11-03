@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 12:16:10 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/02 19:55:37 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/03 00:42:24 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ int		main(int argc, char **argv)
 	determinate_position(&std);
 	print_select(std, std->select);
 	while (42)
-		ft_select(&std, std->first);
-	// free_std_select(&std);
-	// while (1) {}
+		ft_select(&std);
 	return (0);
 }

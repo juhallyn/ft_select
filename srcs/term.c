@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:53:30 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/02 21:16:31 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/03 00:46:08 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,7 @@ void				reset_term(struct termios *term)
 
 void				suspend_term(void)
 {
-	char	st[2];
-
-	st[0] = term.c_cc[VSUSP];
-	st[0] = '\0';
-	signal(SIGTSTP, 0);
-	tcsetattr(0, 0, &(term));
-	// init_term_canon(true);
-	// ft_signal();
-	ioctl(0, TIOCSTI, st);
+	
 }
 
 int					init_term_canon(bool canon)
