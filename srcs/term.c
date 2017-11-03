@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:53:30 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/03 00:46:08 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/03 01:47:45 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ void				reset_term(struct termios *term)
 	term->c_lflag |= ECHO;
 	ft_putstr_fd(tgetstr("ve", NULL), 0);
 	tcsetattr(0, TCSANOW, term);
-}
-
-void				suspend_term(void)
-{
-	
 }
 
 int					init_term_canon(bool canon)

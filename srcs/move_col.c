@@ -6,13 +6,13 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 18:10:31 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/30 18:42:06 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/03 01:57:47 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-bool		move_down_if_possible(t_select **select, t_select *first, int nb_col)
+bool		move_down(t_select **select, t_select *first, int nb_col)
 {
 	int			i;
 	t_select	*tmp;
@@ -37,7 +37,7 @@ bool		move_down_if_possible(t_select **select, t_select *first, int nb_col)
 	return (false);
 }
 
-bool		move_up_if_possible(t_select **select, int nb_col)
+bool		move_up(t_select **select, int nb_col)
 {
 	int			i;
 	t_select	*tmp;

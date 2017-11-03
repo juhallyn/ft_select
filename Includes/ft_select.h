@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/03 00:44:45 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/03 01:52:20 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 
 # define SIZE_CHANGED	2
 
-static struct					termios	term;
+static struct			termios	term;
 
 typedef struct			s_status
 {
@@ -132,9 +132,9 @@ void					to_last_element(t_select **select);
 **	-- move_col.c   --
 */
 
-bool					move_down_if_possible(t_select **select, \
-						t_select *first, int nb_col);
-bool					move_up_if_possible(t_select **select, int nb_col);
+bool					move_down(t_select **select, t_select *first, \
+						int nb_col);
+bool					move_up(t_select **select, int nb_col);
 
 /*
 **	--	delete.c --

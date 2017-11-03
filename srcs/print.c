@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 17:59:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/03 00:41:02 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/03 01:51:31 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	ft_select(t_std **std)
 	if (key == ESC)
 		ft_exit("ESC is pressed");
 	if (key == UP_ARROW)
-		move_up_if_possible(&(*std)->select, (*std)->nb_col);
+		move_up(&(*std)->select, (*std)->nb_col);
 	if (key == DOWN_ARROW)
-		move_down_if_possible(&(*std)->select, (*std)->first, (*std)->nb_col);
+		move_down(&(*std)->select, (*std)->first, (*std)->nb_col);
 	if (key == LEFT_ARROW)
 		left_direction(&(*std)->select);
 	if (key == RIGHT_ARROW)
@@ -70,7 +70,6 @@ void		print_element(t_select *select)
 
 	// log_info("[%d] Select de x [%d] && Select de y [%d]",select->status->place_index,\
 	// select->status->x,select->status->y);
-
 	cursor = tgetstr("cm", NULL);
 	ft_putstr_fd(tgoto(cursor , select->status->x, select->status->y), 0);
 	if (select->status->underlined == true)
