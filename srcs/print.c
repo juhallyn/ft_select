@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 17:59:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/03 02:26:53 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/07 16:18:18 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,15 @@ void	ft_select(t_std **std)
 	if (key == ESC)
 		ft_exit("ESC is pressed");
 	if (key == UP_ARROW)
-		move_up(&(*std)->select, (*std)->nb_col);
+		move_up(std);
 	if (key == DOWN_ARROW)
-		move_down(&(*std)->select, (*std)->first, (*std)->nb_col);
+		move_down(std);
 	if (key == LEFT_ARROW)
-		left_direction(&(*std)->select);
+		left_direction(std);
 	if (key == RIGHT_ARROW)
-		right_direction(&(*std)->select, (*std)->first, false);
+		right_direction(std, false);
 	if (key == SPACE)
-		right_direction(&(*std)->select, (*std)->first, true);
+		right_direction(std, true);
 }
 
 void		print_selected_arg(t_select *select)
@@ -70,6 +70,7 @@ void		print_element(t_select *select)
 
 	// log_info("[%d] Select de x [%d] && Select de y [%d]",select->status->place_index,\
 	// select->status->x,select->status->y);
+	log_info("index position : [%d] ", select->status->place_index);
 	cursor = tgetstr("cm", NULL);
 	ft_putstr_fd(tgoto(cursor , select->status->x, select->status->y), 0);
 	if (select->status->underlined == true)
@@ -86,6 +87,7 @@ void		print_select(t_std *std, t_select *select)
 
 	cursor = tgetstr("cm", NULL);
 	ft_putstr_fd(tgetstr("cl", NULL), 0);
+	log_info("index_page_max : [%d]", (std->index_page + 1) * std->max_elem_page);
 	while (select && select->status->place_index < (std->index_page + 1) \
 	* std->max_elem_page)
 	{

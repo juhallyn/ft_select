@@ -6,30 +6,31 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 18:10:31 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/03 02:25:31 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/07 16:15:34 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-bool		move_down(t_select **select, t_select *first, int nb_col)
+// bool		move_down(t_select **select, t_select *first, int nb_col)
+bool		move_down(t_std **std)
 {
 	int			i;
 	t_select	*tmp;
 
 	i = 0;
-	tmp = *select;
-	while (i < nb_col && tmp->next)
+	tmp = (*std)->select;
+	while (i < (*std)->nb_col && tmp->next)
 	{
 		tmp = tmp->next;
 		i++;
 	}
-	if (i == nb_col)
+	if (i == (*std)->nb_col)
 	{
 		i = 0;
-		while (i < nb_col)
+		while (i < (*std)->nb_col)
 		{
-			right_direction(select, first, false);
+			right_direction(std, false);
 			i++;
 		}
 		return (true);
@@ -37,24 +38,25 @@ bool		move_down(t_select **select, t_select *first, int nb_col)
 	return (false);
 }
 
-bool		move_up(t_select **select, int nb_col)
+
+bool		move_up(t_std **std)
 {
 	int			i;
 	t_select	*tmp;
 
 	i = 0;
-	tmp = *select;
-	while (i < nb_col && tmp->prev)
+	tmp = (*std)->select;
+	while (i < (*std)->nb_col && tmp->prev)
 	{
 		tmp = tmp->prev;
 		i++;
 	}
-	if (i == nb_col)
+	if (i == (*std)->nb_col)
 	{
 		i = 0;
-		while (i < nb_col)
+		while (i < (*std)->nb_col)
 		{
-			left_direction(select);
+			left_direction(std);
 			i++;
 		}
 		return (true);

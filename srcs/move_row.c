@@ -6,59 +6,59 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/18 17:38:13 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/02 18:06:08 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/07 16:06:44 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void	left_direction(t_select **select)
+void	left_direction(t_std **std)
 {
-	if (!*select)
+	if (!(*std)->select)
 		return ;
-	if ((*select)->prev)
+	if ((*std)->select->prev)
 	{
-		move_left(select);
-		(*select) = (*select)->prev;
+		move_left(std);
+		(*std)->select = (*std)->select->prev;
 	}
 	else
-		to_last_element(select);
+		to_last_element(&(*std)->select);
 }
 
-void	right_direction(t_select **select, t_select *first, bool underline)
+void	right_direction(t_std **std, bool underline)
 {
-	if (!*select)
+	if (!(*std)->select)
 		return ;
-	if ((*select)->next)
+	if ((*std)->select->next)
 	{
-		move_right(select, underline);
-		(*select) = (*select)->next;
+		move_right(std, underline);
+		(*std)->select = (*std)->select->next;
 	}
 	else
-		reset(select, first, underline);
+		reset(std, underline);
 }
 
-void	move_right(t_select **select, bool underline)
+void	move_right(t_std **std, bool underline)
 {
-	(*select)->status->select = false;
+	(*std)->select->status->select = false;
 	if (underline == true)
-		(*select)->status->underlined = !((*select)->status->underlined);
-	print_element(*select);
-	if ((*select)->next)
+		(*std)->select->status->underlined = !(*std)->select->status->underlined;
+	print_element((*std)->select);
+	if ((*std)->select->next)
 	{
-		(*select)->next->status->select = true;
-		print_element((*select)->next);
+		(*std)->select->next->status->select = true;
+		print_element((*std)->select->next);
 	}
 }
 
-void	move_left(t_select **select)
+void	move_left(t_std **std)
 {
-	(*select)->status->select = false;
-	print_element(*select);
-	if ((*select)->prev)
+	(*std)->select->status->select = false;
+	print_element((*std)->select);
+	if ((*std)->select->prev)
 	{
-		(*select)->prev->status->select = true;
-		print_element((*select)->prev);
+		(*std)->select->prev->status->select = true;
+		print_element((*std)->select->prev);
 	}
 }
 

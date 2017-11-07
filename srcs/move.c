@@ -6,20 +6,20 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/18 17:38:13 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/10/26 17:24:31 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/07 16:22:25 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void	left_direction(t_select **select)
+void	left_direction(t_std **std)
 {
-	if (!*select)
+	if (!(*std)->select)
 		return ;
-	if ((*select)->prev)
+	if ((*std)->select->prev)
 	{
-		move_left(select);
-		(*select) = (*select)->prev;
+		move_left(std);
+		(*std)->select = (*std)select->prev;
 	}
 	else
 		to_last_element(select);
@@ -63,14 +63,14 @@ void	move_right(t_select **select, bool underline)
 	}
 }
 
-void	move_left(t_select **select)
+void	move_left(t_std **std)
 {
-	(*select)->status->select = false;
-	print_element(*select);
-	if ((*select)->prev)
+	(*std)->select->status->select = false;
+	print_element((*std)->select);
+	if ((*std)->select->prev)
 	{
-		(*select)->prev->status->select = true;
-		print_element((*select)->prev);
+		(*std)->select->prev->status->select = true;
+		print_element((*std)->select->prev);
 	}
 }
 

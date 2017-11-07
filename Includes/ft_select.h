@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/03 01:52:20 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/07 16:29:00 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,26 +121,31 @@ void					print_select(t_std *std, t_select *select);
 **	--	move_row.c --
 */
 
-void					left_direction(t_select **select);
-void					right_direction(t_select **select, t_select *first,\
-	 					bool underline);
-void					move_right(t_select **select, bool underline);
-void					move_left(t_select **select);
+void					left_direction(t_std **std);
+void					right_direction(t_std **std, bool underline);
+void					move_right(t_std **std, bool underline);
+void					move_left(t_std **std);
 void					to_last_element(t_select **select);
 
 /*
 **	-- move_col.c   --
 */
 
-bool					move_down(t_select **select, t_select *first, \
-						int nb_col);
-bool					move_up(t_select **select, int nb_col);
+bool					move_down(t_std **std);
+bool					move_up(t_std **std);
 
 /*
 **	--	delete.c --
 */
 
 void					delete_element(t_std **std, t_select **select);
+
+/*
+**	--	pages.c --
+*/
+
+void					to_next_pages(t_std **std);
+void					to_prev_pages(t_std **std);
 
 /*
 **	--	positions.c --
@@ -158,7 +163,6 @@ void					ft_exit(char *message);
 void					free_selected_element(t_select **to_del);
 void					print_page_index(int i, int total);
 int						get_max_len(t_select *list);
-void					reset(t_select **select, t_select *first, \
-						bool underline);
+void					reset(t_std **std, bool underline);
 
 #endif

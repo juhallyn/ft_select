@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 14:13:56 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/02 18:19:03 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/07 16:06:51 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ void	print_page_index(int i, int total)
 	ft_putstr(")");
 }
 
-void	reset(t_select **select, t_select *first, bool underline)
+void	reset(t_std **std, bool underline)
 {
-	(*select)->status->select = false;
+	(*std)->select->status->select = false;
 	if (underline == true)
-		(*select)->status->underlined = !((*select)->status->underlined);
-	print_element(*select);
-	(*select) = first;
-	(*select)->status->select = true;
-	print_element(*select);
+		(*std)->select->status->underlined = !((*std)->select->status->underlined);
+	print_element((*std)->select);
+	(*std)->select = (*std)->first;
+	(*std)->select->status->select = true;
+	print_element((*std)->select);
 }
