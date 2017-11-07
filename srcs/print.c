@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 17:59:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/07 16:18:18 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/07 17:06:53 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,18 @@ void		print_select(t_std *std, t_select *select)
 	cursor = tgetstr("cm", NULL);
 	ft_putstr_fd(tgetstr("cl", NULL), 0);
 	log_info("index_page_max : [%d]", (std->index_page + 1) * std->max_elem_page);
+	if (std->argc > std->max_elem_page)
+	{
+		ft_putstr_fd(tgetstr("cl", NULL), 0);
+		ft_putstr_fd("Windows Is Too Small", 0);
+		return ;
+	}
 	while (select && select->status->place_index < (std->index_page + 1) \
 	* std->max_elem_page)
 	{
 		print_element(select);
 		select = select->next;
 	}
-	ft_putstr_fd(tgoto(cursor, 0, (*std).win.ws_row), 0);
-	print_page_index(0, std->nb_page);
+	// ft_putstr_fd(tgoto(cursor, 0, (*std).win.ws_row), 0);
+	// print_page_index(0, std->nb_page);
 }
