@@ -6,15 +6,15 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 17:59:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/07 17:06:53 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/09 16:01:11 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void	ft_select(t_std **std)
+void		ft_select(t_std **std)
 {
-	unsigned long 		key;
+	unsigned long	key;
 
 	key = 0;
 	read(0, &key, sizeof(unsigned long));
@@ -55,7 +55,7 @@ void		print_selected_arg(t_select *select)
 	}
 	ft_putchar('\n');
 	init_term_canon(true);
-	exit (0);
+	exit(0);
 }
 
 void		refresh(t_std **std, t_select *first)
@@ -68,11 +68,9 @@ void		print_element(t_select *select)
 {
 	char	*cursor;
 
-	// log_info("[%d] Select de x [%d] && Select de y [%d]",select->status->place_index,\
-	// select->status->x,select->status->y);
 	log_info("index position : [%d] ", select->status->place_index);
 	cursor = tgetstr("cm", NULL);
-	ft_putstr_fd(tgoto(cursor , select->status->x, select->status->y), 0);
+	ft_putstr_fd(tgoto(cursor, select->status->x, select->status->y), 0);
 	if (select->status->underlined == true)
 		ft_putstr_fd("\x1B[7m", 0);
 	if (select->status->select == true)
@@ -87,19 +85,15 @@ void		print_select(t_std *std, t_select *select)
 
 	cursor = tgetstr("cm", NULL);
 	ft_putstr_fd(tgetstr("cl", NULL), 0);
-	log_info("index_page_max : [%d]", (std->index_page + 1) * std->max_elem_page);
 	if (std->argc > std->max_elem_page)
 	{
 		ft_putstr_fd(tgetstr("cl", NULL), 0);
 		ft_putstr_fd("Windows Is Too Small", 0);
 		return ;
 	}
-	while (select && select->status->place_index < (std->index_page + 1) \
-	* std->max_elem_page)
+	while (select && select->status->place_index < std->max_elem_page)
 	{
 		print_element(select);
 		select = select->next;
 	}
-	// ft_putstr_fd(tgoto(cursor, 0, (*std).win.ws_row), 0);
-	// print_page_index(0, std->nb_page);
 }

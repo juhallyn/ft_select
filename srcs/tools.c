@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 14:13:56 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/07 16:06:51 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/09 15:59:51 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_exit(char *message)
 		ft_putendl(message);
 	init_term_canon(true);
 	ft_putstr_fd(tgetstr("cl", NULL), 0);
-	exit (0);
+	exit(0);
 }
 
 int		get_max_len(t_select *list)
@@ -37,6 +37,12 @@ int		get_max_len(t_select *list)
 	return (max_len + 5);
 }
 
+void	print_usage_and_exit(void)
+{
+	ft_putendl_fd("ft_select: Too few arguments.\nusage: ./ft_select \
+\"some arguments\"", 2);
+	exit(-1);
+}
 
 void	free_selected_element(t_select **to_del)
 {
@@ -45,20 +51,12 @@ void	free_selected_element(t_select **to_del)
 	free((*to_del));
 }
 
-void	print_page_index(int i, int total)
-{
-	ft_putstr("pages (");
-	ft_putnbr(i);
-	ft_putchar('/');
-	ft_putnbr(total);
-	ft_putstr(")");
-}
-
 void	reset(t_std **std, bool underline)
 {
 	(*std)->select->status->select = false;
 	if (underline == true)
-		(*std)->select->status->underlined = !((*std)->select->status->underlined);
+		(*std)->select->status->underlined = \
+		!((*std)->select->status->underlined);
 	print_element((*std)->select);
 	(*std)->select = (*std)->first;
 	(*std)->select->status->select = true;

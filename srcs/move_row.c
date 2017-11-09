@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/18 17:38:13 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/07 16:51:53 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/09 15:58:40 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,6 @@ void	right_direction(t_std **std, bool underline)
 		return ;
 	if ((*std)->select->next)
 	{
-		if ((*std)->select->next->status->place_index >= ((*std)->index_page + 1) * \
-		(*std)->max_elem_page)
-		{
-			reset(std, underline);
-			return ;
-		}
 		move_right(std, underline);
 		(*std)->select = (*std)->select->next;
 	}
@@ -48,7 +42,8 @@ void	move_right(t_std **std, bool underline)
 {
 	(*std)->select->status->select = false;
 	if (underline == true)
-		(*std)->select->status->underlined = !(*std)->select->status->underlined;
+		(*std)->select->status->underlined = \
+		!(*std)->select->status->underlined;
 	print_element((*std)->select);
 	if ((*std)->select->next)
 	{

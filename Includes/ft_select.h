@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/07 16:29:00 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/09 16:03:26 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include "../logger/incs/logger_utils.h"
 
 /*
-**	--	KEY --
+**	--	KEYS --
 */
 
 # define UP_ARROW 		4283163
@@ -37,12 +37,16 @@
 # define ENTER			10
 
 /*
-**	--	ioctl magic --
+**	--	SIGWINCH --
 */
 
 # define SIZE_CHANGED	2
 
-static struct			termios	term;
+/*
+**	--	struct --
+*/
+
+static struct termios	term;
 
 typedef struct			s_status
 {
@@ -67,7 +71,6 @@ typedef struct			s_std
 	struct s_select		*first;
 	struct winsize		win;
 	int					nb_col;
-	int					index_page;
 	int					nb_page;
 	int					max_elem_page;
 	int					argc;
@@ -76,20 +79,18 @@ typedef struct			s_std
 }						t_std;
 
 /*
-**	--	Functions --
+**					--	Functions --
 */
-
-int						ft_error(int succes);
 
 /*
 **	--	term.c --
 */
 
+int						termios_error(int succes);
 void					reset_term(struct termios *term);
 int						init_term_canon(bool canon);
 void					to_no_canonial(struct termios *term);
 void					suspend_term(void);
-
 
 /*
 **	--	signal.c --
@@ -141,13 +142,6 @@ bool					move_up(t_std **std);
 void					delete_element(t_std **std, t_select **select);
 
 /*
-**	--	pages.c --
-*/
-
-void					to_next_pages(t_std **std);
-void					to_prev_pages(t_std **std);
-
-/*
 **	--	positions.c --
 */
 
@@ -160,9 +154,9 @@ int						determinate_nb_page(int argc, int max_elem_page);
 */
 
 void					ft_exit(char *message);
-void					free_selected_element(t_select **to_del);
-void					print_page_index(int i, int total);
 int						get_max_len(t_select *list);
+void					print_usage_and_exit(void);
+void					free_selected_element(t_select **to_del);
 void					reset(t_std **std, bool underline);
 
 #endif

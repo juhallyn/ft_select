@@ -6,13 +6,12 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 18:10:31 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/07 16:15:34 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/09 15:57:50 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-// bool		move_down(t_select **select, t_select *first, int nb_col)
 bool		move_down(t_std **std)
 {
 	int			i;
@@ -37,7 +36,6 @@ bool		move_down(t_std **std)
 	}
 	return (false);
 }
-
 
 bool		move_up(t_std **std)
 {
