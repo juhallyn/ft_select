@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 18:24:18 by juhallyn          #+#    #+#              #
-#    Updated: 2017/11/02 20:00:14 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/11/10 17:10:15 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,29 +45,33 @@ OBJS_LIST	=	$(addprefix $(OBJS_DIR), $(OBJS))
 
 #_Compilation_#
 
-FLAG 	=	-Wall -Wextra -ltermcap #-g3 -fsanitize=address #-Werror
+FLAG 	=	-Wall -Wextra -Werror
 
 all: $(NAME)
 
 norm:
 	@clear
-	@norminette $(SRC)
+	@norminette $(SRCS_LIST) $(INC)ft_select.h
 
 #_Compilation_#
 
 $(NAME):
-	make -C $(LIB)
-	gcc $(FLAG) -c $(SRCS_LIST) -I $(INC) -I logger/incs/
-	mv $(OBJS) $(OBJS_DIR)
-	gcc $(FLAG) $(OBJS_LIST) -I logger/incs/ -I $(INC) logger/liblogger.a $(LIB)libft.a -o $(NAME)
+	@make -C $(LIB)
+	@gcc $(FLAG) -c $(SRCS_LIST) -I $(INC)
+	@mkdir -p $(OBJS_DIR)
+	@mv $(OBJS) $(OBJS_DIR)
+	@echo "\x1B[32m [ Created objs\x1B[32m ]\x1B[0m "
+	@gcc $(FLAG) $(OBJS_LIST) -I $(INC) -ltermcap $(LIB)libft.a -o $(NAME)
+	@echo "\x1B[32m [ Created $@ executable √\x1B[32m ]\x1B[0m "
 
 clean:
-	rm -f $(OBJS_LIST)
-	@(cd $(LIB) && $(MAKE) $@)
+	@echo "\x1B[32m [ Clean... \x1B[32m ]\x1B[0m "
+	@rm -f $(OBJS_LIST)
+	@make clean -C $(LIB)
 
-fclean:
-	make fclean -C $(LIB)
-	@rm -f $(OBJ)
+fclean: clean
+	@echo "\x1B[32m [ Fclean... \x1B[32m ]\x1B[0m "
+	@make fclean -C $(LIB)
 	@rm -f $(NAME)
 
 re: fclean all

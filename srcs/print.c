@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/16 17:59:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/09 16:01:11 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/10 16:54:44 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void		ft_select(t_std **std)
 	read(0, &key, sizeof(unsigned long));
 	if (key == SIZE_CHANGED)
 		refresh(std, (*std)->first);
-	if (key == DEL)
+	if (key == DEL || key == BACKSPACE)
 	{
 		delete_element(std, &(*std)->select);
 		refresh(std, (*std)->first);
@@ -28,7 +28,7 @@ void		ft_select(t_std **std)
 	if (key == ENTER)
 		print_selected_arg((*std)->first);
 	if (key == ESC)
-		ft_exit("ESC is pressed");
+		ft_exit("");
 	if (key == UP_ARROW)
 		move_up(std);
 	if (key == DOWN_ARROW)
@@ -68,7 +68,6 @@ void		print_element(t_select *select)
 {
 	char	*cursor;
 
-	log_info("index position : [%d] ", select->status->place_index);
 	cursor = tgetstr("cm", NULL);
 	ft_putstr_fd(tgoto(cursor, select->status->x, select->status->y), 0);
 	if (select->status->underlined == true)

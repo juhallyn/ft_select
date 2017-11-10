@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:35:52 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/09 16:03:26 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/10 16:50:21 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 # include <signal.h>
 # include <sys/ioctl.h>
 # include <stdbool.h>
-# include "../logger/incs/logger.h"
-# include "../logger/incs/logger_utils.h"
 
 /*
 **	--	KEYS --
@@ -34,6 +32,7 @@
 # define ESC			27
 # define SPACE			32
 # define DEL			2117294875
+# define BACKSPACE		127
 # define ENTER			10
 
 /*
